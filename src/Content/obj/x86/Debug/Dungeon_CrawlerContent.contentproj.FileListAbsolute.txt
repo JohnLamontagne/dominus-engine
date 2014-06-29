@@ -1,0 +1,3 @@
+C:\Users\John\Desktop\dungeon_crawler\Dungeon_Crawler\Dungeon_Crawler\Dungeon_CrawlerContent\obj\x86\Debug\Dungeon_CrawlerContent.contentprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\dungeon_crawler\src\Dungeon_Crawler\Dungeon_CrawlerContent\obj\x86\Debug\Dungeon_CrawlerContent.contentprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\dominus_engine\src\dominus_content\obj\x86\Debug\Dungeon_CrawlerContent.contentprojResolveAssemblyReference.cache
