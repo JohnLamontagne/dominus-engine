@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using XNAGameConsole;
 
 namespace Dominus_Core.Screens
 {
@@ -14,9 +15,15 @@ namespace Dominus_Core.Screens
 
         private Texture2D _menuBackground;
 
+
+
+
         public MainMenuScreen()
         {
             _guiHandler = new GUIHandler();
+
+
+
         }
 
         public override void HandleInput(GameTime gameTime, InputState input)
@@ -28,6 +35,9 @@ namespace Dominus_Core.Screens
         {
             if (!instancePreserved)
             {
+
+
+
                 SpriteFont font = this.ScreenManager.Game.Content.Load<SpriteFont>("menuFont");
 
                 _menuBackground = this.ScreenManager.Game.Content.Load<Texture2D>("menuBackground");

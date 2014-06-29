@@ -4,3 +4,8 @@ C:\Users\John\Desktop\dominus_engine\src\Dominus Utilities\obj\x86\Debug\Microso
 C:\Users\John\Desktop\dominus_engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.dll
 C:\Users\John\Desktop\dominus_engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.pdb
 C:\Users\John\Desktop\dominus_engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\bin\x86\Debug\Dominus Utilities.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\bin\x86\Debug\Dominus Utilities.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.pdb

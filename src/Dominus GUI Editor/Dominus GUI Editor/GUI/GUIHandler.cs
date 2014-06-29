@@ -11,8 +11,6 @@ namespace Dominus_GUI_Editor
 
         internal void Save(string filePath)
         {
-
-
             foreach (var widget in this.GetWidgets())
             {
 

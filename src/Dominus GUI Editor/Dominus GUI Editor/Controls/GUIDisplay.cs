@@ -28,8 +28,12 @@ namespace Dominus_GUI_Editor.Controls
             Application.Idle += delegate { Invalidate(); };
         }
 
+
+
         protected override void Draw()
         {
+
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();

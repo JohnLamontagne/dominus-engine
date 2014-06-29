@@ -76,8 +76,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
+    <Reference Include="XNAGameConsole">
+      <HintPath>..\libs\XNAGameConsole.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Effects\Particles\ColorDirectionalParticleEmitter.cs" />
     <Compile Include="Effects\Particles\ColorSpreadParticleEmitter.cs" />
     <Compile Include="Effects\Particles\DirectionalParticleEmitter.cs" />
@@ -89,6 +93,7 @@
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Utilities\ScreenFactory.cs" />
+    <Compile Include="Utilities\XNAConsoleStreamWriter.cs" />
     <Compile Include="World\Entities\IEntity.cs" />
     <Compile Include="World\Entities\Player.cs" />
     <Compile Include="IGameObject.cs" />

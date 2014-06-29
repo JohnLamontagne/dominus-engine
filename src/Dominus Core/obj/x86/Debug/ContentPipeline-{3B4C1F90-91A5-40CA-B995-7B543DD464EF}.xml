@@ -7,8 +7,17 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\menufont.xnb</Output>
       <Time>2014-06-24T17:49:22.5779328-04:00</Time>
+    </Item>
+    <Item>
+      <Source>ConsoleFont.spritefont</Source>
+      <Name>ConsoleFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\ConsoleFont.xnb</Output>
+      <Time>2014-06-29T12:12:13.1129079-04:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -16,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\blank.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blank.xnb</Output>
       <Time>2014-06-12T18:02:59.0421248-04:00</Time>
     </Item>
     <Item>
@@ -25,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\Player.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\Player.xnb</Output>
       <Time>2014-06-12T20:20:38.9285844-04:00</Time>
     </Item>
     <Item>
@@ -34,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\idleButton.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\idleButton.xnb</Output>
       <Time>2014-06-15T19:40:06.7383314-04:00</Time>
     </Item>
     <Item>
@@ -43,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\hoverButton.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\hoverButton.xnb</Output>
       <Time>2014-06-15T20:04:03.6714283-04:00</Time>
     </Item>
     <Item>
@@ -52,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\blankTextbox.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blankTextbox.xnb</Output>
       <Time>2014-06-19T19:27:39.6283732-04:00</Time>
     </Item>
     <Item>
@@ -61,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\blankUsername.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blankUsername.xnb</Output>
       <Time>2014-06-24T17:36:28.045037-04:00</Time>
     </Item>
     <Item>
@@ -70,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\blankPassword.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blankPassword.xnb</Output>
       <Time>2014-06-24T17:52:20.8163166-04:00</Time>
     </Item>
     <Item>
@@ -79,8 +88,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\menuBackground.xnb</Output>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\menuBackground.xnb</Output>
       <Time>2014-06-25T21:22:45.4180586-04:00</Time>
+    </Item>
+    <Item>
+      <Source>defaultButton.png</Source>
+      <Name>defaultButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\defaultButton.xnb</Output>
+      <Time>2014-06-29T10:49:26.7654207-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -89,10 +107,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\John\Desktop\dominus_engine\src\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

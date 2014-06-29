@@ -6,3 +6,11 @@ C:\Users\John\Desktop\dominus_engine\src\Dominus Graphics\obj\x86\Debug\Dominus 
 C:\Users\John\Desktop\dominus_engine\src\Dominus Graphics\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\John\Desktop\dominus_engine\src\Dominus Graphics\obj\x86\Debug\Dominus Graphics.dll
 C:\Users\John\Desktop\dominus_engine\src\Dominus Graphics\obj\x86\Debug\Dominus Graphics.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\bin\x86\Debug\Dominus Graphics.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\bin\x86\Debug\Dominus Graphics.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\bin\x86\Debug\Dominus Utilities.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\bin\x86\Debug\Dominus Utilities.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\obj\x86\Debug\Dominus Graphics.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\obj\x86\Debug\Dominus Graphics.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Graphics\obj\x86\Debug\Dominus Graphics.pdb

@@ -17,3 +17,25 @@ C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Dominus Grap
 C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Dominus Utilities.dll
 C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Dominus Graphics.pdb
 C:\Users\John\Desktop\dominus_engine\src\Dominus Core\bin\x86\Debug\Dominus Utilities.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\menufont.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blank.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\Player.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\idleButton.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\hoverButton.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blankTextbox.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blankUsername.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\blankPassword.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\menuBackground.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\defaultButton.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Dominus_Core.exe
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Dominus_Core.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Dominus Graphics.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Dominus Utilities.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Dominus Graphics.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Dominus Utilities.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\obj\x86\Debug\Dominus Core.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\obj\x86\Debug\Dominus_Core.exe
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\obj\x86\Debug\Dominus_Core.pdb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\XNAGameConsole.dll
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Core\bin\x86\Debug\Content\ConsoleFont.xnb

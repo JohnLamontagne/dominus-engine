@@ -92,12 +92,6 @@ namespace Dominus_GUI_Editor
         {
             _guiHandler = new GUIHandler();
             this.guiDisplay.GUIHandler = _guiHandler;
-
-            var btnPlay = new EditorButton(this.guiDisplay.Content.Load<Texture2D>("idleButton"), this.guiDisplay.Content.Load<SpriteFont>("menufont"));
-            btnPlay.Text = "Login";
-            btnPlay.Position = new Vector2(0, 0);
-            btnPlay.MouseDownTexture = btnPlay.HoverTexture;
-            _guiHandler.AddWidget(btnPlay, "btnPlay");
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,7 +131,7 @@ namespace Dominus_GUI_Editor
             {
                 if (lstControls.SelectedItem.ToString() == "Button")
                 {
-                    var button = new EditorButton(null, this.guiDisplay.Content.Load<SpriteFont>("menufont"));
+                    var button = new EditorButton(this.guiDisplay.Content.Load<Texture2D>("defaultButton"), this.guiDisplay.Content.Load<SpriteFont>("menufont"));
                     button.Text = "Text";
                     button.Position = new Vector2(e.X, e.Y);
 
