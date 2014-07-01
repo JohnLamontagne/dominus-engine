@@ -20,10 +20,7 @@ namespace Dominus_Core.Screens
 
         public MainMenuScreen()
         {
-            _guiHandler = new GUIHandler();
-
-
-
+            _guiHandler = new GUIHandler(this.ScreenManager.Font);
         }
 
         public override void HandleInput(GameTime gameTime, InputState input)

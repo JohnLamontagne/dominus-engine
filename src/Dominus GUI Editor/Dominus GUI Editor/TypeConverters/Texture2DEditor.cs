@@ -48,6 +48,7 @@ namespace Dominus_GUI_Editor.TypeConverters
                     {
                         // Load up the texture
                         Texture2D texture = Texture2D.FromStream(graphicsDevice, fileStream);
+                        texture.Name = openFile.FileName;
                         value = texture;
                     }
 

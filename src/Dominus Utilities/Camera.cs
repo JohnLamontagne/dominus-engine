@@ -28,6 +28,7 @@ namespace Dominus_Utilities
             _zoom = 1f;
             _rotation = 0f;
             _position = Vector2.Zero;
+
         }
 
         public void Move(Vector2 distance)

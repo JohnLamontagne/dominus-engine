@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Xml;
 
 namespace Dominus_Graphics.GUI
 {
@@ -18,5 +20,6 @@ namespace Dominus_Graphics.GUI
 
         bool Contains(Point point);
 
+        void Load(ContentManager content, SpriteFont font, XmlNode node);
     }
 }

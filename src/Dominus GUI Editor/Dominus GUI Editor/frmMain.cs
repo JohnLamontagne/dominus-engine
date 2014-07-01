@@ -90,7 +90,7 @@ namespace Dominus_GUI_Editor
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _guiHandler = new GUIHandler();
+            _guiHandler = new GUIHandler(this.guiDisplay.Content.Load<SpriteFont>("menufont"));
             this.guiDisplay.GUIHandler = _guiHandler;
         }
 
@@ -131,7 +131,9 @@ namespace Dominus_GUI_Editor
             {
                 if (lstControls.SelectedItem.ToString() == "Button")
                 {
-                    var button = new EditorButton(this.guiDisplay.Content.Load<Texture2D>("defaultButton"), this.guiDisplay.Content.Load<SpriteFont>("menufont"));
+                    var buttonTexture = this.guiDisplay.Content.Load<Texture2D>("defaultButton");
+                    buttonTexture.Name = "defaultButton";
+                    var button = new EditorButton(buttonTexture, this.guiDisplay.Content.Load<SpriteFont>("menufont"));
                     button.Text = "Text";
                     button.Position = new Vector2(e.X, e.Y);
 
@@ -183,6 +185,21 @@ namespace Dominus_GUI_Editor
         {
             _mouseDown = false;
             _activeWidget = null;
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.DefaultExt = ".xml";
+            openFileDialog.Filter = "XML Files (*.xml)|*.xml";
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _guiHandler = new GUIHandler(this.guiDisplay.Content.Load<SpriteFont>("menufont"));
+
+                _guiHandler.Load(openFileDialog.FileName, this.guiDisplay.Content);
+            }
         }
     }
 }

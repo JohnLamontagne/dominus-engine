@@ -47,10 +47,10 @@
             this.scrlX = new System.Windows.Forms.HScrollBar();
             this.widgetPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.grpSceneProperties = new System.Windows.Forms.GroupBox();
-            this.txtWidth = new System.Windows.Forms.TextBox();
-            this.txtHeight = new System.Windows.Forms.TextBox();
-            this.lblWidth = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
+            this.lblWidth = new System.Windows.Forms.Label();
+            this.txtHeight = new System.Windows.Forms.TextBox();
+            this.txtWidth = new System.Windows.Forms.TextBox();
             this.guiDisplay = new Dominus_GUI_Editor.Controls.GUIDisplay();
             this.menuStrip1.SuspendLayout();
             this.grpSceneProperties.SuspendLayout();
@@ -96,41 +96,42 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -210,23 +211,14 @@
             this.grpSceneProperties.TabStop = false;
             this.grpSceneProperties.Text = "Properties:";
             // 
-            // txtWidth
+            // lblHeight
             // 
-            this.txtWidth.Location = new System.Drawing.Point(45, 29);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.ReadOnly = true;
-            this.txtWidth.Size = new System.Drawing.Size(100, 20);
-            this.txtWidth.TabIndex = 0;
-            this.txtWidth.Text = "800";
-            // 
-            // txtHeight
-            // 
-            this.txtHeight.Location = new System.Drawing.Point(45, 55);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.ReadOnly = true;
-            this.txtHeight.Size = new System.Drawing.Size(100, 20);
-            this.txtHeight.TabIndex = 1;
-            this.txtHeight.Text = "600";
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Location = new System.Drawing.Point(4, 58);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(41, 13);
+            this.lblHeight.TabIndex = 3;
+            this.lblHeight.Text = "Height:";
             // 
             // lblWidth
             // 
@@ -237,14 +229,23 @@
             this.lblWidth.TabIndex = 2;
             this.lblWidth.Text = "Width:";
             // 
-            // lblHeight
+            // txtHeight
             // 
-            this.lblHeight.AutoSize = true;
-            this.lblHeight.Location = new System.Drawing.Point(4, 58);
-            this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(41, 13);
-            this.lblHeight.TabIndex = 3;
-            this.lblHeight.Text = "Height:";
+            this.txtHeight.Location = new System.Drawing.Point(45, 55);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.ReadOnly = true;
+            this.txtHeight.Size = new System.Drawing.Size(100, 20);
+            this.txtHeight.TabIndex = 1;
+            this.txtHeight.Text = "600";
+            // 
+            // txtWidth
+            // 
+            this.txtWidth.Location = new System.Drawing.Point(45, 29);
+            this.txtWidth.Name = "txtWidth";
+            this.txtWidth.ReadOnly = true;
+            this.txtWidth.Size = new System.Drawing.Size(100, 20);
+            this.txtWidth.TabIndex = 0;
+            this.txtWidth.Text = "800";
             // 
             // guiDisplay
             // 

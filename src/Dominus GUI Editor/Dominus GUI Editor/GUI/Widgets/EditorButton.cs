@@ -5,18 +5,18 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace Dominus_GUI_Editor.GUI.Widgets
 {
-    public class EditorButton : Button
+    public class EditorButton : Button, IEditorWidget
     {
-
         public EditorButton(Texture2D texture, SpriteFont font)
             : base(texture, font)
         {
-
         }
 
         [Browsable(false)]
@@ -29,7 +29,6 @@ namespace Dominus_GUI_Editor.GUI.Widgets
                 else
                     return new Vector2(0, 0);
             }
-
         }
 
         [Browsable(false)]
@@ -69,7 +68,7 @@ namespace Dominus_GUI_Editor.GUI.Widgets
             }
         }
 
-        [EditorAttribute(typeof(Texture2DEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
         [Browsable(true)]
         public override Texture2D HoverTexture
         {
@@ -83,7 +82,7 @@ namespace Dominus_GUI_Editor.GUI.Widgets
             }
         }
 
-        [EditorAttribute(typeof(Texture2DEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
         [Browsable(true)]
         public override Texture2D IdleTexture
         {
@@ -97,7 +96,7 @@ namespace Dominus_GUI_Editor.GUI.Widgets
             }
         }
 
-        [EditorAttribute(typeof(Texture2DEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
         [Browsable(true)]
         public override Texture2D MouseDownTexture
         {
@@ -157,6 +156,23 @@ namespace Dominus_GUI_Editor.GUI.Widgets
             {
                 base.Visible = value;
             }
+        }
+
+        public void Save(XmlWriter xmlWriter)
+        {
+            xmlWriter.WriteElementString("Position", this.Position.ToString());
+            xmlWriter.WriteElementString("Scale", this.Scale.ToString());
+            xmlWriter.WriteElementString("Text", this.Text);
+            xmlWriter.WriteElementString("ForeColor", this.ForeColor.ToString());
+            xmlWriter.WriteElementString("Visible", this.Visible.ToString());
+            //xmlWriter.WriteElementString("Font", this.Font.)
+
+            // Write the texture information.
+            xmlWriter.WriteStartElement("Textures");
+            xmlWriter.WriteElementString("HoverTexture", this.HoverTexture == null ? "naught" : this.HoverTexture.Name);
+            xmlWriter.WriteElementString("IdleTexture", this.IdleTexture == null ? "naught" : this.IdleTexture.Name);
+            xmlWriter.WriteElementString("MouseDownTexture", this.MouseDownTexture == null ? "naught" : this.MouseDownTexture.Name);
+            xmlWriter.WriteEndElement();
         }
     }
 }

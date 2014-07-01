@@ -1,8 +1,11 @@
 ﻿using Dominus_Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Diagnostics;
+using System.Xml;
 
 namespace Dominus_Graphics.GUI.Widgets
 {
@@ -17,10 +20,12 @@ namespace Dominus_Graphics.GUI.Widgets
         private Vector2 _scale;
 
         /// <summary>
-        /// Our widget's properties. We make all of these virtual so that our GUI editor may 
+        /// Our widget's properties. We make all of these virtual so that our GUI editor may
         /// override them to provide the PropertyGrid object with necessary information.
         /// </summary>
+
         #region Properties
+
         public virtual bool Visible { get; set; }
 
         public virtual bool Active { get; set; }
@@ -142,11 +147,17 @@ namespace Dominus_Graphics.GUI.Widgets
                 _textures[2] = value;
             }
         }
-        #endregion
 
-
+        #endregion Properties
 
         public event EventHandler ButtonClicked;
+
+        /// <summary>
+        /// Only used for loading the button from XML.
+        /// </summary>
+        internal Button()
+        {
+        }
 
         public Button(Texture2D idleTexture, SpriteFont font)
         {
@@ -229,6 +240,23 @@ namespace Dominus_Graphics.GUI.Widgets
         public bool Contains(Point point)
         {
             return _buttonArea.Contains(point);
+        }
+
+        public void Load(ContentManager content, SpriteFont font, XmlNode node)
+        {
+            _textures = new Texture2D[3];
+            _textPosition = new Vector2();
+            _position = Vector2.Zero;
+            _buttonState = MouseStatus.Idle;
+
+            this.IdleTexture = content.Load<Texture2D>(node.ChildNodes[0].InnerText);
+            this.Font = font;
+            this.Text = node.ChildNodes[2].InnerText ?? "";
+            this.ForeColor = new Color().FromString(node.ChildNodes[3].InnerText);
+            this.Visible = bool.Parse(node.ChildNodes[4].InnerText);
+            this.Scale = new Vector2().FromString(node.ChildNodes[1].InnerText);
+            this.Position = new Vector2().FromString(node.ChildNodes[0].InnerText);
+
         }
     }
 }

@@ -60,5 +60,15 @@ namespace Dominus_Graphics.GUI.Widgets
         {
             throw new NotImplementedException();
         }
+
+
+
+
+
+
+        public void Load(Microsoft.Xna.Framework.Content.ContentManager content, SpriteFont font, System.Xml.XmlNode node)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

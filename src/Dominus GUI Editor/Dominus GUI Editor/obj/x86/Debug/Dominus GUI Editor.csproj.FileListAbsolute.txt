@@ -20,6 +20,7 @@ C:\Users\John\Desktop\dominus_engine\src\Dominus GUI Editor\Dominus GUI Editor\b
 C:\Users\John\Desktop\dominus_engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankPassword.xnb
 C:\Users\John\Desktop\dominus_engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\menuBackground.xnb
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\menufont.xnb
+C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\ConsoleFont.xnb
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blank.xnb
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\Player.xnb
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\idleButton.xnb
@@ -41,4 +42,3 @@ C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\obj\x86\Debug\Dominus GUI Editor.csproj.GenerateResource.Cache
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\obj\x86\Debug\Dominus GUI Editor.exe
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\obj\x86\Debug\Dominus GUI Editor.pdb
-C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\ConsoleFont.xnb
