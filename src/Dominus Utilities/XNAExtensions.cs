@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 
 namespace Dominus_Utilities
 {
@@ -24,12 +27,14 @@ namespace Dominus_Utilities
 
             var components = value.Split(' ');
 
-            components[0] = components[0].Remove(0, 1);
-            components[1] = components[1].Remove(0, 1);
-            components[2] = components[0].Remove(0, 1);
-            components[3] = components[1].Remove(0, 1);
+            components[0] = components[0].Remove(0, 2);
+            components[1] = components[1].Remove(0, 2);
+            components[2] = components[2].Remove(0, 2);
+            components[3] = components[3].Remove(0, 2);
 
             return new Color(float.Parse(components[0]), float.Parse(components[1]), float.Parse(components[2]), float.Parse(components[3]));
         }
+
+
     }
 }

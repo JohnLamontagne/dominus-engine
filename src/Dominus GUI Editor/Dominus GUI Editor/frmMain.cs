@@ -1,17 +1,12 @@
-﻿using Dominus_Graphics.GUI;
+﻿using Dominus_Core.Graphics.GUI.Widgets;
+using Dominus_GUI_Editor.GUI;
 using Dominus_GUI_Editor.GUI.Widgets;
+using Dominus_Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace Dominus_GUI_Editor
 {
@@ -90,7 +85,7 @@ namespace Dominus_GUI_Editor
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _guiHandler = new GUIHandler(this.guiDisplay.Content.Load<SpriteFont>("menufont"));
+            _guiHandler = new GUIHandler();
             this.guiDisplay.GUIHandler = _guiHandler;
         }
 
@@ -125,7 +120,6 @@ namespace Dominus_GUI_Editor
         {
             if (lstControls.SelectedItem == null)
             {
-
             }
             else if (_guiHandler != null)
             {
@@ -136,10 +130,13 @@ namespace Dominus_GUI_Editor
                     var button = new EditorButton(buttonTexture, this.guiDisplay.Content.Load<SpriteFont>("menufont"));
                     button.Text = "Text";
                     button.Position = new Vector2(e.X, e.Y);
+                    button.Name = "button" + (_guiHandler.GetWidgets().Length - 1);
 
-                    _guiHandler.AddWidget(button, "button" + _guiHandler.GetWidgets().Length);
+                    PropertyDescriptor descriptor = TypeDescriptor.GetProperties(button.GetType())["SpouseName"];
 
-                    this.widgetPropertyGrid.SelectedObject = _guiHandler.GetWidget<EditorButton>("button" + (_guiHandler.GetWidgets().Length - 1));
+                    _guiHandler.AddWidget(button);
+
+                    this.widgetPropertyGrid.SelectedObject = _guiHandler.GetWidget<Dominus_Core.Graphics.GUI.Widgets.Button>(button.Name);
 
                     lstControls.SelectedItem = null;
                 }
@@ -152,15 +149,29 @@ namespace Dominus_GUI_Editor
 
             if (_guiHandler == null || _guiHandler.GetWidgets().Length < 0) return;
 
+            // Always consider the active widget first.
+            if (_activeWidget != null && _activeWidget.Contains(new Point(e.X, e.Y)))
+            {
+                // Update the mouse offset.
+                _mouseOffset = _activeWidget.Position - new Vector2(e.X, e.Y);
+
+                return;
+            }
+
             // Find the widget that you clicked on and select it.
             foreach (var widget in _guiHandler.GetWidgets())
             {
-                if (widget.Contains(new Microsoft.Xna.Framework.Point(e.X, e.Y)))
+                if (widget.Contains(new Point(e.X, e.Y)))
                 {
+                    widget.Active = true;
+
                     _activeWidget = widget;
+
                     this.widgetPropertyGrid.SelectedObject = widget;
 
                     _mouseOffset = widget.Position - new Vector2(e.X, e.Y);
+
+                    break;
                 }
             }
         }
@@ -171,20 +182,19 @@ namespace Dominus_GUI_Editor
             {
                 if (_activeWidget != null)
                 {
-                    if (_activeWidget.GetType() == typeof(EditorButton))
-                    {
-                        var widget = _activeWidget as EditorButton;
-
-                        widget.Position = new Vector2(e.X, e.Y) + _mouseOffset;
-                    }
+                    // Update the selected wideget relative to our mouse.
+                    _activeWidget.Position = new Vector2(e.X, e.Y) + _mouseOffset;
                 }
             }
         }
 
         private void guiDisplay_MouseUp(object sender, MouseEventArgs e)
         {
+            // Our mouse isn't down anymore.
             _mouseDown = false;
-            _activeWidget = null;
+
+            // Reset the mouse offset relative to the selected widget.
+            _mouseOffset = Vector2.Zero;
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -196,10 +206,20 @@ namespace Dominus_GUI_Editor
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                _guiHandler = new GUIHandler(this.guiDisplay.Content.Load<SpriteFont>("menufont"));
+                _guiHandler = new GUIHandler();
 
                 _guiHandler.Load(openFileDialog.FileName, this.guiDisplay.Content);
+
+                this.guiDisplay.GUIHandler = _guiHandler;
             }
+        }
+
+        private void lstControls_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void guiDisplay_Click(object sender, EventArgs e)
+        {
         }
     }
 }

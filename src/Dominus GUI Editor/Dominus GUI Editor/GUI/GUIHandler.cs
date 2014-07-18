@@ -1,47 +1,36 @@
-﻿using Dominus_Graphics.GUI;
+﻿using Dominus_Core.Graphics.GUI.Widgets;
 using Dominus_GUI_Editor.GUI.Widgets;
+using Dominus_Utilities;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
-namespace Dominus_GUI_Editor
+namespace Dominus_GUI_Editor.GUI
 {
-    internal class GUIHandler : Dominus_Graphics.GUI.GUIHandler
+    internal class GUIHandler : Dominus_Core.Graphics.GUI.GUIHandler
     {
-        public GUIHandler(SpriteFont mainFont)
-            : base(mainFont)
+        public override void Load(string filePath, ContentManager content)
         {
+            base.Load(filePath, content);
 
-        }
+            var newWidgets = new Dictionary<string, IWidget>();
 
-        internal void Save(string filePath)
-        {
-            var xmlSettings = new XmlWriterSettings();
-            xmlSettings.Indent = true;
-
-            var xmlWriter = XmlWriter.Create(filePath, xmlSettings);
-            xmlWriter.WriteStartDocument();
-
-            xmlWriter.WriteStartElement("Widgets");
-
-            foreach (IEditorWidget widget in this.GetWidgets())
+            foreach (var value in this.GetWidgets())
             {
-                xmlWriter.WriteStartElement("Widget");
-                xmlWriter.WriteAttributeString("Type", widget.GetType().BaseType.ToString());
-                xmlWriter.WriteAttributeString("Name", this.GetName(widget as IWidget));
-                widget.Save(xmlWriter);
-                xmlWriter.WriteEndElement();
+                if (value.GetType() == typeof(Button))
+                {
+                    var editorButton = new EditorButton(value as Button);
+                    newWidgets.Add(value.Name, editorButton);
+                }
             }
 
-            xmlWriter.WriteEndElement();
+            this.ClearWidgets();
 
-            xmlWriter.WriteEndDocument();
-            xmlWriter.Close();
+            foreach (var entry in newWidgets)
+            {
+                this.AddWidget(entry.Value);
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using XNAGameConsole;
 
-namespace Dominus_Graphics.Commands
+namespace Dominus_Core.Commands
 {
     class ExitCommand : IConsoleCommand
     {

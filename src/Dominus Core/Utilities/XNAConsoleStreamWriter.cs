@@ -5,7 +5,7 @@ using XNAGameConsole;
 
 
 
-namespace Dominus_Graphics.Utilities
+namespace Dominus_Core.Utilities
 {
     public class XNAConsoleStreamWriter : TextWriter
     {

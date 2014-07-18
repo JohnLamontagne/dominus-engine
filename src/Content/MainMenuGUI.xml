@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Widgets>
+  <Widget Type="Dominus_Core.Graphics.GUI.Widgets.Button" Name="button0">
+    <Position>{X:279 Y:64}</Position>
+    <Scale>{X:1 Y:1}</Scale>
+    <Text>Login</Text>
+    <ForeColor>{R:0 G:0 B:0 A:255}</ForeColor>
+    <Visible>True</Visible>
+    <Textures>
+      <HoverTexture>naught</HoverTexture>
+      <IdleTexture />
+      <MouseDownTexture>naught</MouseDownTexture>
+    </Textures>
+  </Widget>
+  <Widget Type="Dominus_Core.Graphics.GUI.Widgets.Button" Name="button1">
+    <Position>{X:279 Y:140}</Position>
+    <Scale>{X:1 Y:1}</Scale>
+    <Text>Register</Text>
+    <ForeColor>{R:0 G:0 B:0 A:255}</ForeColor>
+    <Visible>True</Visible>
+    <Textures>
+      <HoverTexture>naught</HoverTexture>
+      <IdleTexture />
+      <MouseDownTexture>naught</MouseDownTexture>
+    </Textures>
+  </Widget>
+  <Widget Type="Dominus_Core.Graphics.GUI.Widgets.Button" Name="button2">
+    <Position>{X:278 Y:217}</Position>
+    <Scale>{X:1 Y:1}</Scale>
+    <Text>Exit</Text>
+    <ForeColor>{R:0 G:0 B:0 A:255}</ForeColor>
+    <Visible>True</Visible>
+    <Textures>
+      <HoverTexture>naught</HoverTexture>
+      <IdleTexture>C:\Users\John\Documents\GitHub\dominus-engine\src\Content\Idle-button.png</IdleTexture>
+      <MouseDownTexture>naught</MouseDownTexture>
+    </Textures>
+  </Widget>
+</Widgets>

@@ -1,5 +1,4 @@
-﻿using Dominus_Graphics.GUI.Widgets;
-using Dominus_GUI_Editor.TypeConverters;
+﻿using Dominus_Core.Graphics.GUI.Widgets;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,105 +7,36 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using System.Linq;
 using System.Text;
-using System.Xml;
 
 namespace Dominus_GUI_Editor.GUI.Widgets
 {
-    public class EditorButton : Button, IEditorWidget
+    class EditorButton : Button
     {
-        public EditorButton(Texture2D texture, SpriteFont font)
-            : base(texture, font)
-        {
-        }
 
-        [Browsable(false)]
-        public Vector2 TrueDimensions
+        public override string Name
         {
             get
             {
-                if (this.IdleTexture != null)
-                    return new Vector2(this.IdleTexture.Width * this.Scale.X, this.IdleTexture.Height * this.Scale.Y);
-                else
-                    return new Vector2(0, 0);
+                return base.Name;
+            }
+            set
+            {
+                base.Name = value;
             }
         }
 
         [Browsable(false)]
-        public override bool Active
-        {
-            get
-            {
-                return base.Active;
-            }
-            set
-            {
-                base.Active = value;
-            }
-        }
+        public override bool Active { get { return base.Active; } set { base.Active = value; } }
 
-        public override SpriteFont Font
+        public override string Text
         {
             get
             {
-                return base.Font;
+                return base.Text;
             }
             set
             {
-                base.Font = value;
-            }
-        }
-
-        public override Color ForeColor
-        {
-            get
-            {
-                return base.ForeColor;
-            }
-            set
-            {
-                base.ForeColor = value;
-            }
-        }
-
-        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
-        [Browsable(true)]
-        public override Texture2D HoverTexture
-        {
-            get
-            {
-                return base.HoverTexture;
-            }
-            set
-            {
-                base.HoverTexture = value;
-            }
-        }
-
-        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
-        [Browsable(true)]
-        public override Texture2D IdleTexture
-        {
-            get
-            {
-                return base.IdleTexture;
-            }
-            set
-            {
-                base.IdleTexture = value;
-            }
-        }
-
-        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
-        [Browsable(true)]
-        public override Texture2D MouseDownTexture
-        {
-            get
-            {
-                return base.MouseDownTexture;
-            }
-            set
-            {
-                base.MouseDownTexture = value;
+                base.Text = value;
             }
         }
 
@@ -134,45 +64,68 @@ namespace Dominus_GUI_Editor.GUI.Widgets
             }
         }
 
-        public override string Text
+        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
+        [Browsable(true)]
+        public override Texture2D IdleTexture
         {
             get
             {
-                return base.Text;
+                return base.IdleTexture;
             }
             set
             {
-                base.Text = value;
+                base.IdleTexture = value;
             }
         }
 
-        public override bool Visible
+        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
+        [Browsable(true)]
+        public override Texture2D HoverTexture
         {
             get
             {
-                return base.Visible;
+                return base.HoverTexture;
             }
+
             set
             {
-                base.Visible = value;
+                base.HoverTexture = value;
             }
         }
 
-        public void Save(XmlWriter xmlWriter)
+        [EditorAttribute(typeof(Texture2DEditor), typeof(UITypeEditor))]
+        [Browsable(true)]
+        public override Texture2D MouseDownTexture
         {
-            xmlWriter.WriteElementString("Position", this.Position.ToString());
-            xmlWriter.WriteElementString("Scale", this.Scale.ToString());
-            xmlWriter.WriteElementString("Text", this.Text);
-            xmlWriter.WriteElementString("ForeColor", this.ForeColor.ToString());
-            xmlWriter.WriteElementString("Visible", this.Visible.ToString());
-            //xmlWriter.WriteElementString("Font", this.Font.)
+            get
+            {
+                return base.MouseDownTexture;
+            }
 
-            // Write the texture information.
-            xmlWriter.WriteStartElement("Textures");
-            xmlWriter.WriteElementString("HoverTexture", this.HoverTexture == null ? "naught" : this.HoverTexture.Name);
-            xmlWriter.WriteElementString("IdleTexture", this.IdleTexture == null ? "naught" : this.IdleTexture.Name);
-            xmlWriter.WriteElementString("MouseDownTexture", this.MouseDownTexture == null ? "naught" : this.MouseDownTexture.Name);
-            xmlWriter.WriteEndElement();
+            set
+            {
+                base.MouseDownTexture = value;
+            }
         }
+
+        public EditorButton(Texture2D idleTexture, SpriteFont font)
+            : base(idleTexture, font)
+        {
+
+        }
+
+        public EditorButton(Button button)
+            : base(button.IdleTexture, button.Font)
+        {
+            this.Name = button.Name;
+            this.HoverTexture = button.HoverTexture;
+            this.MouseDownTexture = button.MouseDownTexture;
+            this.Scale = button.Scale;
+            this.Position = button.Position;
+            this.Text = button.Text;
+            this.Visible = button.Visible;
+            this.ForeColor = button.ForeColor;
+        }
+
     }
 }

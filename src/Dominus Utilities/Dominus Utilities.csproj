@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="ContentManagerUtilities.cs" />
     <Compile Include="InputHelper.cs" />
     <Compile Include="MouseStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
