@@ -19,7 +19,6 @@ namespace Dominus_Core.ScreenManagement
         /// </summary>
         public GUIHandler GUIHandler { get; private set; }
 
-
         private readonly Dictionary<string, IGameObject> _gameObjects;
 
         public Screen()

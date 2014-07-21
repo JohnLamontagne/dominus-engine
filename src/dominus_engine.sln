@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content", "Content\Content.contentproj", "{3B4C1F90-91A5-40CA-B995-7B543DD464EF}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominus Utilities", "Dominus Utilities\Dominus Utilities.csproj", "{5E02BC34-EA1E-4C8A-9C76-4AB1B7F4D397}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominus GUI Editor", "Dominus GUI Editor\Dominus GUI Editor\Dominus GUI Editor.csproj", "{E86749A9-CF74-4E7C-B402-D8BCC80F4A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominus RPG Core", "Dominus RPG Core\Dominus RPG Core.csproj", "{48B2C2BB-62FF-4418-9660-1A376DE04C9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,16 @@ Global
 		{E86749A9-CF74-4E7C-B402-D8BCC80F4A1E}.Release|Mixed Platforms.Build.0 = Release|x86
 		{E86749A9-CF74-4E7C-B402-D8BCC80F4A1E}.Release|x86.ActiveCfg = Release|x86
 		{E86749A9-CF74-4E7C-B402-D8BCC80F4A1E}.Release|x86.Build.0 = Release|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Debug|x86.ActiveCfg = Debug|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Debug|x86.Build.0 = Debug|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Release|Any CPU.ActiveCfg = Release|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Release|x86.ActiveCfg = Release|x86
+		{48B2C2BB-62FF-4418-9660-1A376DE04C9F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

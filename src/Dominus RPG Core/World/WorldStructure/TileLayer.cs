@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Dominus_Core.World.WorldStructure
+namespace Dominus_RPG_Core.World.WorldStructure
 {
     public class TileLayer
     {

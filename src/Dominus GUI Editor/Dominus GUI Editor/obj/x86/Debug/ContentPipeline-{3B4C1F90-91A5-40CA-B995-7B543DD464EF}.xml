@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2014-06-24T17:49:22.5779328-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2014-07-20T22:21:47.3274415-04:00</Time>
     </Item>
     <Item>
       <Source>ConsoleFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\ConsoleFont.xnb</Output>
-      <Time>2014-06-29T12:12:13.1129079-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\ConsoleFont.xnb</Output>
+      <Time>2014-07-20T22:21:47.3147181-04:00</Time>
     </Item>
     <Item>
       <Source>blank.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2014-06-12T18:02:59.0421248-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2014-07-20T22:21:47.324441-04:00</Time>
     </Item>
     <Item>
       <Source>Player.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\Player.xnb</Output>
-      <Time>2014-06-12T20:20:38.9285844-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\Player.xnb</Output>
+      <Time>2014-07-20T22:21:47.3204432-04:00</Time>
     </Item>
     <Item>
       <Source>Idle-button.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\idleButton.xnb</Output>
-      <Time>2014-06-15T19:40:06.7383314-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\idleButton.xnb</Output>
+      <Time>2014-07-20T22:21:47.3184437-04:00</Time>
     </Item>
     <Item>
       <Source>hoverButton.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\hoverButton.xnb</Output>
-      <Time>2014-06-15T20:04:03.6714283-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\hoverButton.xnb</Output>
+      <Time>2014-07-20T22:21:47.3264092-04:00</Time>
     </Item>
     <Item>
       <Source>Blank textbox.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankTextbox.xnb</Output>
-      <Time>2014-06-19T19:27:39.6283732-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankTextbox.xnb</Output>
+      <Time>2014-07-20T22:21:47.3137208-04:00</Time>
     </Item>
     <Item>
       <Source>Username field BLANK.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankUsername.xnb</Output>
-      <Time>2014-06-24T17:36:28.045037-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankUsername.xnb</Output>
+      <Time>2014-07-20T22:21:47.3234108-04:00</Time>
     </Item>
     <Item>
       <Source>Password field BLANK.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankPassword.xnb</Output>
-      <Time>2014-06-24T17:52:20.8163166-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\blankPassword.xnb</Output>
+      <Time>2014-07-20T22:21:47.3194405-04:00</Time>
     </Item>
     <Item>
       <Source>sk4_0.jpg</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\menuBackground.xnb</Output>
-      <Time>2014-06-25T21:22:45.4180586-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\menuBackground.xnb</Output>
+      <Time>2014-07-20T22:21:47.3724521-04:00</Time>
     </Item>
     <Item>
       <Source>defaultButton.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\defaultButton.xnb</Output>
-      <Time>2014-06-29T10:49:26.7654207-04:00</Time>
+      <Output>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\defaultButton.xnb</Output>
+      <Time>2014-07-20T22:21:47.3254416-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -107,10 +107,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\General\Documents\GitHub\dominus-engine\src\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus GUI Editor\Dominus GUI Editor\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -138,8 +138,8 @@
         <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-06-10T20:36:50.5024717-04:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-06-30T00:16:13.1984435-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

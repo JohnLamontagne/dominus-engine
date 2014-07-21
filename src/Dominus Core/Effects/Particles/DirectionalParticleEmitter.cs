@@ -38,8 +38,6 @@ namespace Dominus_Core.Effects.Particles
 
 
             velocity.X *= _positiveXVelocity ? 1 : -1;
-
-            // Y is backwards because the top of the screen is 0, and the user thinks of up as positive.
             velocity.Y *= _positiveYVelocity ? -1 : 1;
 
             return new Particle(this.Position, velocity, angularVelocity, angle, texture, Color.White, (int)lifeTime);

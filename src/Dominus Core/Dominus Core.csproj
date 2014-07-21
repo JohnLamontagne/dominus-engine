@@ -88,6 +88,7 @@
     <Compile Include="Effects\Particles\ParticleEmitter.cs" />
     <Compile Include="Effects\Particles\SpreadParticleEmitter.cs" />
     <Compile Include="Effects\Particles\TestParticleEmitter.cs" />
+    <Compile Include="IGameObject.cs" />
     <Compile Include="Graphics\GUI\GUIHandler.cs" />
     <Compile Include="Graphics\GUI\WidgetDictionary.cs" />
     <Compile Include="Graphics\GUI\WidgetNameChangedEventArgs.cs" />
@@ -99,19 +100,8 @@
     <Compile Include="ScreenManagement\ScreenManager.cs" />
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\XNAConsoleStreamWriter.cs" />
-    <Compile Include="World\Entities\IEntity.cs" />
-    <Compile Include="World\Entities\Player.cs" />
-    <Compile Include="IGameObject.cs" />
-    <Compile Include="World\WorldStructure\DungeonGenerator\DungeonGeneratorFactory.cs" />
-    <Compile Include="World\WorldStructure\DungeonGenerator\DungeonTypes.cs" />
-    <Compile Include="World\WorldStructure\DungeonGenerator\IDungeonGenerator.cs" />
-    <Compile Include="World\WorldStructure\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DominusGame.cs" />
-    <Compile Include="World\WorldStructure\WorldViewHandler.cs" />
-    <Compile Include="World\WorldStructure\Tile.cs" />
-    <Compile Include="World\WorldStructure\TileLayer.cs" />
-    <Compile Include="World\WorldStructure\WorldView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

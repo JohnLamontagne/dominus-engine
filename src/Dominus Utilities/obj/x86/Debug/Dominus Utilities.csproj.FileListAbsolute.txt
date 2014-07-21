@@ -9,3 +9,8 @@ C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\bin\x86\Debu
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.dll
 C:\Users\John\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.pdb
+C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus Utilities\bin\x86\Debug\Dominus Utilities.dll
+C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus Utilities\bin\x86\Debug\Dominus Utilities.pdb
+C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.dll
+C:\Users\General\Documents\GitHub\dominus-engine\src\Dominus Utilities\obj\x86\Debug\Dominus Utilities.pdb

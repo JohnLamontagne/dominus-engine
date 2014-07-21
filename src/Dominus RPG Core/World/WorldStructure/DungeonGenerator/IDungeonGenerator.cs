@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using System;
 
-namespace Dominus_Core.World.WorldStructure.DungeonGenerator
+namespace Dominus_RPG_Core.World.WorldStructure.DungeonGenerator
 {
     public abstract class DungeonGenerator
     {

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 
-namespace Dominus_Core.World.Entities
+namespace Dominus_RPG_Core.World.Entities
 {
     public class Player : IEntity
     {
@@ -91,6 +91,37 @@ namespace Dominus_Core.World.Entities
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_sprite, this.Position, Color.Navy);
+        }
+
+        public IEntityCombatHandler CombatHandler
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+
+        public int Health
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+        public Vector2 Range
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

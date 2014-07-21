@@ -2,13 +2,16 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Dominus_Core.World.WorldStructure
+namespace Dominus_RPG_Core.World.WorldStructure
 {
     public class Map
     {
         private Tile[,] _tiles;
+        private SpawnInformation _spawnInformation;
 
         public Point Size { get { return new Point(_tiles.GetLength(0), _tiles.GetLength(1)); } }
+
+        public SpawnInformation SpawnInformation { get { return _spawnInformation; } }
 
         public Map(Point mapSize)
         {

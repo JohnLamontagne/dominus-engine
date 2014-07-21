@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Dominus_Core.World.WorldStructure
+namespace Dominus_RPG_Core.World.WorldStructure
 {
     public class Tile
     {
