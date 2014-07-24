@@ -11,12 +11,10 @@ namespace Main_Test_Project.Screens
     internal class MainMenuScreen : Screen
     {
         private SpriteFont _mainFont;
-        private ContentManager _content;
 
         public MainMenuScreen(ContentManager content)
+            :base(content)
         {
-            _content = content;
-
             _mainFont = content.Load<SpriteFont>("menufont");
 
             this.InitalizeGUI();
@@ -24,7 +22,7 @@ namespace Main_Test_Project.Screens
 
         private void InitalizeGUI()
         {
-            this.GUIHandler.Load(@"C:\Users\John\Documents\GitHub\dominus-engine\Test Projects\Main test project\Main Test Project\Main Test Project\Main Test ProjectContent\TehTest.xml", _content);
+            this.GUIHandler.Load(@"C:\Users\John\Documents\GitHub\dominus-engine\Test Projects\Main test project\Main Test Project\Main Test Project\Main Test ProjectContent\TehTest.xml", this.Content);
 
             var buttonLogin = this.GUIHandler.GetWidget<Button>("btnTest");
             buttonLogin.ButtonClicked += buttonLogin_ButtonClicked;

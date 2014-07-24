@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 
-namespace Dominus_Core.Effects.Particles
+namespace Dominus_Core.Graphics.Effects.Particles
 {
     public class ParticleEmitter : IGameObject
     {

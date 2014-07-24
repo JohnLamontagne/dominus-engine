@@ -57,24 +57,35 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Net" />
+    <Reference Include="TiledSharp">
+      <HintPath>..\libs\TiledSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DominusRPGGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPGGameProperties.cs" />
     <Compile Include="ScreenManagement\RPGScreen.cs" />
+    <Compile Include="Utilities\RPGCamera.cs" />
+    <Compile Include="Utilities\EntityMovedEventArgs.cs" />
     <Compile Include="World\Entities\DefaultCombatHandler.cs" />
     <Compile Include="World\Entities\IEntity.cs" />
     <Compile Include="World\Entities\IEntityCombatHandler.cs" />
     <Compile Include="World\Entities\Npc.cs" />
     <Compile Include="World\Entities\Player.cs" />
+    <Compile Include="World\Entities\Stats\Defence.cs" />
+    <Compile Include="World\Entities\Stats\Health.cs" />
+    <Compile Include="World\Entities\Stats\IStat.cs" />
+    <Compile Include="World\Entities\Stats\StatHandler.cs" />
+    <Compile Include="World\Entities\Stats\Strength.cs" />
     <Compile Include="World\WorldStructure\DungeonGenerator\DungeonGeneratorFactory.cs" />
     <Compile Include="World\WorldStructure\DungeonGenerator\DungeonTypes.cs" />
-    <Compile Include="World\WorldStructure\DungeonGenerator\IDungeonGenerator.cs" />
+    <Compile Include="World\WorldStructure\DungeonGenerator\DungeonGenerator.cs" />
+    <Compile Include="World\WorldStructure\Layer.cs" />
     <Compile Include="World\WorldStructure\Map.cs" />
-    <Compile Include="World\WorldStructure\NPCSpawn.cs" />
     <Compile Include="World\WorldStructure\SpawnInformation.cs" />
     <Compile Include="World\WorldStructure\Tile.cs" />
-    <Compile Include="World\WorldStructure\TileLayer.cs" />
+    <Compile Include="World\WorldStructure\TiledSharp\Tileset.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominus Core\Dominus Core.csproj">

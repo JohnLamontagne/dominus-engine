@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using System;
 
-namespace Dominus_Core.Effects.Particles
+namespace Dominus_Core.Graphics.Effects.Particles
 {
     public class Particle
     {

@@ -1,5 +1,6 @@
 ﻿using Dominus_Core.Graphics.GUI;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,14 @@ namespace Dominus_Core.ScreenManagement
         /// </summary>
         public GUIHandler GUIHandler { get; private set; }
 
+        public ContentManager Content { get; private set; }
+
         private readonly Dictionary<string, IGameObject> _gameObjects;
 
-        public Screen()
+        public Screen(ContentManager content)
         {
             _gameObjects = new Dictionary<string, IGameObject>();
+            this.Content = content;
             this.GUIHandler = new GUIHandler();
         }
 

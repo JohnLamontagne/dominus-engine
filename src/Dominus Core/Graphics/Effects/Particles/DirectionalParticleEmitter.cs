@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace Dominus_Core.Effects.Particles
+namespace Dominus_Core.Graphics.Effects.Particles
 {
     public class DirectionalParticleEmitter : ParticleEmitter
     {

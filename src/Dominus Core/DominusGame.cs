@@ -14,7 +14,7 @@ namespace Dominus_Core
         protected GraphicsDeviceManager Graphics;
         protected GameConsole GameConsole;
         protected SpriteBatch SpriteBatch;
-        protected TextWriter Writer;
+        protected XNAConsoleStreamWriter Writer;
         protected ScreenManager ScreenManager;
 
         public DominusGame()
@@ -57,6 +57,8 @@ namespace Dominus_Core
 
         protected override void Update(GameTime gameTime)
         {
+            this.Writer.Update();
+
             // Update the InputHelper.
             InputHelper.GetHelper().Update(gameTime);
 
@@ -70,7 +72,6 @@ namespace Dominus_Core
             this.Graphics.GraphicsDevice.Clear(Color.Black);
 
             this.ScreenManager.Draw(this.SpriteBatch);
-
 
             base.Draw(gameTime);
         }

@@ -81,13 +81,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ExitCommand.cs" />
-    <Compile Include="Effects\Particles\ColorDirectionalParticleEmitter.cs" />
-    <Compile Include="Effects\Particles\ColorSpreadParticleEmitter.cs" />
-    <Compile Include="Effects\Particles\DirectionalParticleEmitter.cs" />
-    <Compile Include="Effects\Particles\Particle.cs" />
-    <Compile Include="Effects\Particles\ParticleEmitter.cs" />
-    <Compile Include="Effects\Particles\SpreadParticleEmitter.cs" />
-    <Compile Include="Effects\Particles\TestParticleEmitter.cs" />
+    <Compile Include="Graphics\Effects\Particles\ColorDirectionalParticleEmitter.cs" />
+    <Compile Include="Graphics\Effects\Particles\ColorSpreadParticleEmitter.cs" />
+    <Compile Include="Graphics\Effects\Particles\DirectionalParticleEmitter.cs" />
+    <Compile Include="Graphics\Effects\Particles\Particle.cs" />
+    <Compile Include="Graphics\Effects\Particles\ParticleEmitter.cs" />
+    <Compile Include="Graphics\Effects\Particles\SpreadParticleEmitter.cs" />
+    <Compile Include="Graphics\Effects\Particles\TestParticleEmitter.cs" />
     <Compile Include="IGameObject.cs" />
     <Compile Include="Graphics\GUI\GUIHandler.cs" />
     <Compile Include="Graphics\GUI\WidgetDictionary.cs" />

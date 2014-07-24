@@ -13,7 +13,7 @@ namespace Dominus_RPG_Core.World.WorldStructure.DungeonGenerator
             var size = new Point(random.Next(Constants.MIN_MAP_X, Constants.MAX_MAP_X),
                 random.Next(Constants.MIN_MAP_Y, Constants.MAX_MAP_Y));
 
-            map = new Map(size);
+           // map = new Map(size);
         }
 
         public virtual Map Generate()

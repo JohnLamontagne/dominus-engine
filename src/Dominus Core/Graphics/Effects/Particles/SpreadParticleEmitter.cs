@@ -5,11 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Dominus_Core.Effects.Particles
+namespace Dominus_Core.Graphics.Effects.Particles
 {
     public class SpreadParticleEmitter : ParticleEmitter
     {
-
         protected uint _xIntensity;
         protected uint _yIntensity;
 
@@ -18,14 +17,13 @@ namespace Dominus_Core.Effects.Particles
         {
             _xIntensity = xIntensity;
             _yIntensity = yIntensity;
-
-
         }
 
         protected override Particle CreateNewParticle()
         {
-            int randomXScalar = _random.Next(1, (int)_xIntensity) * (_random.NextDouble() < .5 ? -1 : 1);
-            int randomYScalar = _random.Next(1, (int)_yIntensity) * (_random.NextDouble() < .5 ? -1 : 1);
+            int randomXScalar = _xIntensity > 0 ? _random.Next(1, (int)_xIntensity) * (_random.NextDouble() < .5 ? -1 : 1) : 0;
+
+            int randomYScalar = _yIntensity > 0 ? _random.Next(1, (int)_yIntensity) * (_random.NextDouble() < .5 ? -1 : 1) : 0;
 
             var velocity = new Vector2((float)_random.NextDouble() * randomXScalar, (float)_random.NextDouble() * randomYScalar);
             var angle = 0f;

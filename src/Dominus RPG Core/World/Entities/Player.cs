@@ -1,18 +1,23 @@
-﻿using Dominus_Core.Utilities;
-using Dominus_Utilities;
+﻿using Dominus_RPG_Core.Utilities;
+using Dominus_RPG_Core.World.Entities.Stats;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Dominus_RPG_Core.World.Entities
 {
+    [Serializable]
     public class Player : IEntity
     {
         private Vector2 _position;
         private Texture2D _sprite;
+        private StatHandler _stats;
+        private IEntityCombatHandler _combatHandler;
 
-        public Texture2D Sprite
+        public Texture2D Texture
         {
             get { return _sprite; }
         }
@@ -23,14 +28,26 @@ namespace Dominus_RPG_Core.World.Entities
 
         public float Speed { get; set; }
 
+        public Vector2 Range { get; set; }
+
         public Vector2 Position { get { return _position; } private set { _position = value; } }
 
-        public Camera Camera { get; private set; }
+        public Rectangle Bounds { get; set; }
 
-        public Player(Texture2D playerTexture, Camera camera)
+        public StatHandler Stats { get { return _stats; } }
+
+        public IEntityCombatHandler CombatHandler { get { return _combatHandler; } }
+
+        public event EventHandler Moved;
+
+        public Player(Texture2D playerTexture)
         {
             _sprite = playerTexture;
-            this.Camera = camera;
+            _stats = new StatHandler();
+            _stats.AddStat(new Strength(), "Strength");
+            _stats.AddStat(new Defence(), "Defence");
+            _stats.AddStat(new Health(), "Health");
+            _combatHandler = new DefaultCombatHandler();
         }
 
         private void CheckInput()
@@ -52,76 +69,45 @@ namespace Dominus_RPG_Core.World.Entities
 
         private void Move(Vector2 distance)
         {
-            this.Position += distance;
+            if (this.Bounds.Contains(new Point((int)(this.Position.X + distance.X), (int)(this.Position.Y + distance.Y))))
+            {
+                this.Position += distance;
+
+                if (this.Moved != null)
+                    this.Moved.Invoke(this, new EntityMovedEventArgs(distance));
+            }
         }
 
         public void Update(GameTime gameTime)
         {
             this.CheckInput();
-
-            // Update the camera.
-            if (this.Camera.Position.X < this.Position.X)
-            {
-                float delta = Math.Abs(this.Camera.Position.X - this.Position.X);
-
-                this.Camera.Move(new Vector2(.05f * delta, 0));
-            }
-            else if (this.Camera.Position.X > this.Position.X)
-            {
-                float delta = Math.Abs(this.Camera.Position.X - this.Position.X);
-
-                this.Camera.Move(new Vector2(.05f * -delta, 0));
-            }
-
-            if (this.Camera.Position.Y < this.Position.Y)
-            {
-                float delta = Math.Abs(this.Camera.Position.Y - this.Position.Y);
-
-                this.Camera.Move(new Vector2(0, .05f * delta));
-            }
-            else if (this.Camera.Position.Y > this.Position.Y)
-            {
-                float delta = Math.Abs(this.Camera.Position.Y - this.Position.Y);
-
-                this.Camera.Move(new Vector2(0, .05f * -delta));
-
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_sprite, this.Position, Color.Navy);
+            spriteBatch.Draw(_sprite, this.Position, Color.White);
         }
 
-        public IEntityCombatHandler CombatHandler
+        public virtual void Save(string filePath)
         {
-            get { throw new NotImplementedException(); }
-        }
-
-
-        public int Health
-        {
-            get
+            using (var fileStream = new FileStream(filePath, FileMode.OpenOrCreate))
             {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(fileStream, this);
             }
         }
 
-
-        public Vector2 Range
+        public static Player Load(string filePath)
         {
-            get
+            Player player;
+
+            using (var fileStream = new FileStream(filePath, FileMode.Open))
             {
-                throw new NotImplementedException();
+                var formatter = new BinaryFormatter();
+                player = formatter.Deserialize(fileStream) as Player;
             }
-            set
-            {
-                throw new NotImplementedException();
-            }
+
+            return player;
         }
     }
 }

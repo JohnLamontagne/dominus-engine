@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Widgets>
+  <Widget Type="Dominus_Core.Graphics.GUI.Widgets.Button" Name="button-1">
+    <Position>{X:283 Y:144}</Position>
+    <Scale>{X:1 Y:1}</Scale>
+    <Text>Text</Text>
+    <ForeColor>{R:0 G:0 B:0 A:255}</ForeColor>
+    <Visible>True</Visible>
+    <Textures>
+      <HoverTexture>naught</HoverTexture>
+      <IdleTexture>C:\Users\General\Documents\GitHub\dominus-engine\Test Projects\Main test project\Main Test Project\Main Test Project\Main Test ProjectContent\hoverButton.png</IdleTexture>
+      <MouseDownTexture>naught</MouseDownTexture>
+    </Textures>
+  </Widget>
+</Widgets>

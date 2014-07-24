@@ -1,25 +1,38 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using XNAGameConsole;
-
-
 
 namespace Dominus_Core.Utilities
 {
     public class XNAConsoleStreamWriter : TextWriter
     {
-        GameConsole _output = null;
+        private GameConsole _output = null;
+
+        private Queue<string> _messageQueue;
 
         public XNAConsoleStreamWriter(GameConsole output)
         {
             _output = output;
+            _messageQueue = new Queue<string>();
+        }
+
+        internal void Update()
+        {
+            lock (_messageQueue)
+            {
+                for (int i = 0; i < _messageQueue.Count; i++)
+                {
+                    _output.WriteLine(_messageQueue.Dequeue());
+                }
+            }
         }
 
         public override void WriteLine(string value)
         {
             base.WriteLine(value);
-            _output.WriteLine(value); // When character data is written, append it to the text box.
+
+            _messageQueue.Enqueue(value);
         }
 
         public override Encoding Encoding

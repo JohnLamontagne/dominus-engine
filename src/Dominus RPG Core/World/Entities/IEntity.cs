@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Dominus_RPG_Core.World.Entities.Stats;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace Dominus_RPG_Core.World.Entities
 {
@@ -7,13 +9,13 @@ namespace Dominus_RPG_Core.World.Entities
     {
         IEntityCombatHandler CombatHandler { get; }
 
-        Texture2D Sprite { get; }
+        StatHandler Stats { get; }
+
+        Texture2D Texture { get; }
 
         string Name { get; set; }
 
         int Level { get; set; }
-
-        int Health { get; set; }
 
         Vector2 Range { get; set; }
 
@@ -24,5 +26,7 @@ namespace Dominus_RPG_Core.World.Entities
         void Update(GameTime gameTime);
 
         void Draw(SpriteBatch spriteBatch);
+
+        event EventHandler Moved;
     }
 }
