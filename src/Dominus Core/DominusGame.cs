@@ -51,9 +51,13 @@ namespace Dominus_Core
             base.LoadContent();
 
             this.InitalizeScreens();
+
+            this.InitalizeConsoleCommands();
         }
 
         protected abstract void InitalizeScreens();
+
+        protected abstract void InitalizeConsoleCommands();
 
         protected override void Update(GameTime gameTime)
         {

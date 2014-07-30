@@ -36,7 +36,6 @@ namespace Dominus_Core.Graphics.Effects.Particles
             var lifeTime = _random.Next(100, 200);
             var texture = _particleTextures[_random.Next(0, _particleTextures.Length)];
 
-
             velocity.X *= _positiveXVelocity ? 1 : -1;
             velocity.Y *= _positiveYVelocity ? -1 : 1;
 

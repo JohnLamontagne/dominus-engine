@@ -1,12 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Dominus_Core.ScreenManagement
 {
-    public sealed class ScreenManager
+    public class ScreenManager
     {
         private readonly Dictionary<string, Screen> _screens;
         private Screen _activeScreen;

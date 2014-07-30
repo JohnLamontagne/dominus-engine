@@ -10,15 +10,22 @@ namespace Dominus_Utilities
     {
         public static Vector2 FromString(this Vector2 vector2, string value)
         {
-            value = value.TrimStart('{').TrimEnd('}');
+            try
+            {
+                value = value.TrimStart('{').TrimEnd('}');
 
-            var components = value.Split(' ');
+                var components = value.Split(' ');
 
-            // Remove the X:/Y:
-            components[0] = components[0].Remove(0, 2);
-            components[1] = components[1].Remove(0, 2);
+                // Remove the X:/Y:
+                components[0] = components[0].Remove(0, 2);
+                components[1] = components[1].Remove(0, 2);
 
-            return new Vector2(float.Parse(components[0]), float.Parse(components[1]));
+                return new Vector2(float.Parse(components[0]), float.Parse(components[1]));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Invalid string! Only strings that have the {X:a Y:b} format can be translated to a vector!", ex);
+            }
         }
 
         public static Color FromString(this Color color, string value)
@@ -34,7 +41,5 @@ namespace Dominus_Utilities
 
             return new Color(float.Parse(components[0]), float.Parse(components[1]), float.Parse(components[2]), float.Parse(components[3]));
         }
-
-
     }
 }

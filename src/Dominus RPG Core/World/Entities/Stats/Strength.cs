@@ -2,9 +2,20 @@
 
 namespace Dominus_RPG_Core.World.Entities.Stats
 {
-    class Strength : IStat<int>
+    internal class Strength : IStat<int>
     {
         private int _strengthPoints;
+        private int _maxPoints;
+
+        public Strength(int maxPoints)
+        {
+            _maxPoints = maxPoints;
+        }
+
+        public int MaxPoints
+        {
+            get { return _maxPoints; }
+        }
 
         public int GetPoints()
         {
@@ -13,13 +24,14 @@ namespace Dominus_RPG_Core.World.Entities.Stats
 
         public void SetPoints(int points)
         {
-            _strengthPoints = points;
+            if (points <= _maxPoints)
+                _strengthPoints = points;
         }
-
 
         public void AddPoints(int points)
         {
-            throw new NotImplementedException();
+            if (_strengthPoints + points <= _maxPoints)
+                _strengthPoints += points;
         }
 
         public void RemovePoints(int points)

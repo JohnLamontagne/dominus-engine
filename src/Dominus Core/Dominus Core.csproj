@@ -88,6 +88,7 @@
     <Compile Include="Graphics\Effects\Particles\ParticleEmitter.cs" />
     <Compile Include="Graphics\Effects\Particles\SpreadParticleEmitter.cs" />
     <Compile Include="Graphics\Effects\Particles\TestParticleEmitter.cs" />
+    <Compile Include="Graphics\SpriteSheet.cs" />
     <Compile Include="IGameObject.cs" />
     <Compile Include="Graphics\GUI\GUIHandler.cs" />
     <Compile Include="Graphics\GUI\WidgetDictionary.cs" />
@@ -132,11 +133,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Content\Content.contentproj">
-      <Project>{3B4C1F90-91A5-40CA-B995-7B543DD464EF}</Project>
-      <Name>Content</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
     <ProjectReference Include="..\Dominus Utilities\Dominus Utilities.csproj">
       <Project>{5e02bc34-ea1e-4c8a-9c76-4ab1b7f4d397}</Project>
       <Name>Dominus Utilities</Name>

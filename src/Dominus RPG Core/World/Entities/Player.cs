@@ -1,4 +1,5 @@
-﻿using Dominus_RPG_Core.Utilities;
+﻿using Dominus_Core.Graphics;
+using Dominus_RPG_Core.Utilities;
 using Dominus_RPG_Core.World.Entities.Stats;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,14 +14,16 @@ namespace Dominus_RPG_Core.World.Entities
     public class Player : IEntity
     {
         private Vector2 _position;
-        private Texture2D _sprite;
+        private SpriteSheet _spriteSheet;
         private StatHandler _stats;
         private IEntityCombatHandler _combatHandler;
 
-        public Texture2D Texture
+        public SpriteSheet SpriteSheet
         {
-            get { return _sprite; }
+            get { return _spriteSheet; }
         }
+
+        public bool Dead { get { throw new NotImplementedException(); } }
 
         public string Name { get; set; }
 
@@ -30,7 +33,7 @@ namespace Dominus_RPG_Core.World.Entities
 
         public Vector2 Range { get; set; }
 
-        public Vector2 Position { get { return _position; } private set { _position = value; } }
+        public Vector2 Position { get { return _position; } private set { _position = value; this.SpriteSheet.Position = value; } }
 
         public Rectangle Bounds { get; set; }
 
@@ -42,11 +45,11 @@ namespace Dominus_RPG_Core.World.Entities
 
         public Player(Texture2D playerTexture)
         {
-            _sprite = playerTexture;
+            _spriteSheet = new SpriteSheet(playerTexture, 3, 4, 32, 32);
             _stats = new StatHandler();
-            _stats.AddStat(new Strength(), "Strength");
-            _stats.AddStat(new Defence(), "Defence");
-            _stats.AddStat(new Health(), "Health");
+            _stats.AddStat(new Strength(100), "Strength");
+            _stats.AddStat(new Defence(100), "Defence");
+            _stats.AddStat(new Health(100), "Health");
             _combatHandler = new DefaultCombatHandler();
         }
 
@@ -55,16 +58,32 @@ namespace Dominus_RPG_Core.World.Entities
             var keyboardState = Keyboard.GetState();
 
             if (keyboardState.IsKeyDown(Keys.Up))
+            {
                 this.Move(new Vector2(0, -this.Speed));
+                this.SpriteSheet.HorizontalFrameIndex++;
+                this.SpriteSheet.VerticalFrameIndex = 3;
+            }
 
             if (keyboardState.IsKeyDown(Keys.Down))
+            {
                 this.Move(new Vector2(0, this.Speed));
+                this.SpriteSheet.HorizontalFrameIndex++;
+                this.SpriteSheet.VerticalFrameIndex = 0;
+            }
 
             if (keyboardState.IsKeyDown(Keys.Left))
+            {
                 this.Move(new Vector2(-this.Speed, 0));
+                this.SpriteSheet.HorizontalFrameIndex++;
+                this.SpriteSheet.VerticalFrameIndex = 1;
+            }
 
             if (keyboardState.IsKeyDown(Keys.Right))
+            {
                 this.Move(new Vector2(this.Speed, 0));
+                this.SpriteSheet.HorizontalFrameIndex++;
+                this.SpriteSheet.VerticalFrameIndex = 2;
+            }
         }
 
         private void Move(Vector2 distance)
@@ -85,7 +104,7 @@ namespace Dominus_RPG_Core.World.Entities
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_sprite, this.Position, Color.White);
+            _spriteSheet.Draw(spriteBatch);
         }
 
         public virtual void Save(string filePath)

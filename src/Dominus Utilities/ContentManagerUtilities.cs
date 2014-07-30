@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using System.Xml;
 
 namespace Dominus_Utilities
 {
@@ -44,6 +45,23 @@ namespace Dominus_Utilities
             texture2D.SetData(data);
 
             return texture2D;
+        }
+
+        public static Texture2D[] LoadParticleTextures(string particleTextureFile, ContentManager content)
+        {
+            var xmlDoc = new XmlDocument();
+            xmlDoc.Load(particleTextureFile);
+
+            XmlNodeList nodes = xmlDoc.SelectNodes("Textures/Texture");
+
+            var textures = new Texture2D[nodes.Count];
+
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                textures[i] = ContentManagerUtilities.LoadTexture2D(content, nodes[i].Attributes["filepath"].Value);
+            }
+
+            return textures;
         }
     }
 }

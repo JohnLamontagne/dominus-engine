@@ -7,31 +7,21 @@ namespace Dominus_RPG_Core.World.Entities.Stats
     [Serializable]
     public class StatHandler : IEnumerable
     {
-        private Dictionary<string, IStat<object>> _stats;
+        private Dictionary<string, object> _stats;
 
         public StatHandler()
         {
-            _stats = new Dictionary<string, IStat<object>>();
+            _stats = new Dictionary<string, object>();
         }
 
         public IStat<T> GetStat<T>(string name)
         {
-            IStat<object> value;
-
-            if (_stats.TryGetValue(name, out value))
-            {
-                if (value.GetType() == typeof(T))
-                {
-                    return (IStat<T>)value;
-                }
-            }
-
-            return default(IStat<T>);
+            return _stats[name] as IStat<T>;
         }
 
         public void AddStat<T>(IStat<T> stat, string name)
         {
-            _stats.Add(name, stat as IStat<object>);
+            _stats.Add(name, stat as object);
         }
 
         public void RemoveStat(string name)

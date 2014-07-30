@@ -57,11 +57,17 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Net" />
-    <Reference Include="TiledSharp">
-      <HintPath>..\libs\TiledSharp.dll</HintPath>
+    <Reference Include="TiledSharp, Version=1.0.5318.30601, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\TiledSharp-master\TiledSharp-master\TiledSharp\bin\Debug\TiledSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="XNAGameConsole, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\XNAGameConsole.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\MapInformationCommand.cs" />
     <Compile Include="DominusRPGGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RPGGameProperties.cs" />
@@ -72,6 +78,8 @@
     <Compile Include="World\Entities\IEntity.cs" />
     <Compile Include="World\Entities\IEntityCombatHandler.cs" />
     <Compile Include="World\Entities\Npc.cs" />
+    <Compile Include="World\Entities\Spawners\ISpawner.cs" />
+    <Compile Include="World\Entities\Spawners\NpcSpawner.cs" />
     <Compile Include="World\Entities\Player.cs" />
     <Compile Include="World\Entities\Stats\Defence.cs" />
     <Compile Include="World\Entities\Stats\Health.cs" />
@@ -82,8 +90,9 @@
     <Compile Include="World\WorldStructure\DungeonGenerator\DungeonTypes.cs" />
     <Compile Include="World\WorldStructure\DungeonGenerator\DungeonGenerator.cs" />
     <Compile Include="World\WorldStructure\Layer.cs" />
+    <Compile Include="World\WorldStructure\LayerTypes.cs" />
     <Compile Include="World\WorldStructure\Map.cs" />
-    <Compile Include="World\WorldStructure\SpawnInformation.cs" />
+    <Compile Include="World\WorldStructure\MapObjectLoader.cs" />
     <Compile Include="World\WorldStructure\Tile.cs" />
     <Compile Include="World\WorldStructure\TiledSharp\Tileset.cs" />
   </ItemGroup>

@@ -32,7 +32,10 @@ namespace Dominus_Core.Utilities
         {
             base.WriteLine(value);
 
-            _messageQueue.Enqueue(value);
+            lock (_messageQueue)
+            {
+                _messageQueue.Enqueue(value);
+            }
         }
 
         public override Encoding Encoding

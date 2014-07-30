@@ -12,12 +12,15 @@ namespace Dominus_RPG_Core.World.WorldStructure
         private readonly Vector2 _position;
         private readonly Rectangle _sourceRect;
         private readonly Rectangle _destRect;
+        private readonly byte _opacity;
 
-        public Tile(Tileset tileset, Rectangle sourceRect, Vector2 position)
+        public Tile(Tileset tileset, Rectangle sourceRect, Vector2 position, double opacity)
         {
             _tileset = tileset;
             _position = position;
             _sourceRect = sourceRect;
+
+            _opacity = (byte)(opacity * 255);
 
             if (_tileset != null)
                 _destRect = new Rectangle((int)(position.X), (int)(position.Y), tileset.TileWidth, tileset.TileHeight);
@@ -27,7 +30,7 @@ namespace Dominus_RPG_Core.World.WorldStructure
         {
             if (_tileset != null)
             {
-                spriteBatch.Draw(_tileset.Texture, _destRect, _sourceRect, Color.White);
+                spriteBatch.Draw(_tileset.Texture, _destRect, _sourceRect, Color.White * _opacity);
             }
         }
     }

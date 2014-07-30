@@ -1,4 +1,5 @@
 ﻿using Dominus_RPG_Core;
+using Dominus_RPG_Core.Commands;
 using Main_Test_Project.Screens;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,8 @@ namespace Main_Test_Project
 {
     internal class Game : DominusRPGGame
     {
-        public Game()
+        public Game(RPGGameProperties rpgGameProperties)
+            : base(rpgGameProperties)
         {
         }
 
@@ -32,6 +34,11 @@ namespace Main_Test_Project
             var gameScreen = new GameScreen(this.Content, properties);
             this.ScreenManager.AddScreen(gameScreen, "GameScreen");
             this.ScreenManager.SetActiveScreen("GameScreen");
+        }
+
+        protected override void InitalizeConsoleCommands()
+        {
+            this.GameConsole.AddCommand(new MapInformationCommand(this.ScreenManager.GetScreen<GameScreen>("GameScreen")));
         }
     }
 }

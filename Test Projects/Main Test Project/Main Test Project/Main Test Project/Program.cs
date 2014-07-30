@@ -1,3 +1,4 @@
+using Dominus_RPG_Core;
 using System;
 
 namespace Main_Test_Project
@@ -11,7 +12,11 @@ namespace Main_Test_Project
         /// </summary>
         private static void Main(string[] args)
         {
-            using (var game = new Game())
+            RPGGameProperties properties = new RPGGameProperties();
+
+            properties.PlayerTexturePath = @"C:\Users\General\Desktop\char.png";
+
+            using (var game = new Game(properties))
             {
                 game.Run();
             }

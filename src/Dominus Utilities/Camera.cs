@@ -17,7 +17,7 @@ namespace Dominus_Utilities
             set
             {
                 _zoom = _zoom < 0.1f ? 0.1f : value;
-                //_bounds = new Rectangle(_bounds.X, _bounds.Y, (int)(_bounds.Width * this.Zoom), (int)(_bounds.Height * this.Zoom));
+                _bounds = new Rectangle(_bounds.X, _bounds.Y, (int)(_bounds.Width * this.Zoom), (int)(_bounds.Height * this.Zoom));
             }
         }
 
@@ -29,7 +29,7 @@ namespace Dominus_Utilities
             }
             set
             {
-                //_bounds = new Rectangle(value.X, value.Y, (int)(value.Width * this.Zoom), (int)(value.Height * this.Zoom));
+                _bounds = new Rectangle(value.X, value.Y, (int)(value.Width * this.Zoom), (int)(value.Height * this.Zoom));
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using Dominus_Core.ScreenManagement;
+﻿using Dominus_Core;
+using Dominus_Core.ScreenManagement;
 using Dominus_RPG_Core.Utilities;
 using Dominus_RPG_Core.World.Entities;
 using Dominus_RPG_Core.World.WorldStructure;
@@ -13,41 +14,21 @@ namespace Dominus_RPG_Core.ScreenManagement
 {
     public class RPGScreen : Screen
     {
-        private readonly Dictionary<string, IEntity> _entities;
         private RPGCamera _camera;
         private SpriteBatch _mapSpriteBatch;
         private GraphicsDevice _graphicsDevice;
 
         public Map CurrentMap { get; protected set; }
 
-        public RPGScreen(ContentManager content, RPGGameProperties properties)
+        public RPGScreen(ContentManager content)
             : base(content)
         {
-            _entities = new Dictionary<string, IEntity>();
-
             _graphicsDevice = (content.ServiceProvider.GetService(typeof(IGraphicsDeviceService)) as IGraphicsDeviceService).GraphicsDevice;
             _mapSpriteBatch = new SpriteBatch(_graphicsDevice);
 
             _camera = new RPGCamera(new Rectangle(0, 0, _graphicsDevice.DisplayMode.Width, _graphicsDevice.DisplayMode.Height));
 
             this.Initalize();
-            this.InitalizePlayer(content, properties);
-        }
-
-        /// <summary>
-        /// Initalizes the player.
-        /// Note: Invoked after the Initalize method.
-        /// </summary>
-        /// <param name="content"></param>
-        /// <param name="properties"></param>
-        protected virtual void InitalizePlayer(ContentManager content, RPGGameProperties properties)
-        {
-            // Add the main player.
-            Player player = new Player(ContentManagerUtilities.LoadTexture2D(content, properties.PlayerTexturePath));
-            player.Speed = 1f;
-            _entities.Add("MainPlayer", player);
-
-            _camera.SetEntityTarget(player);
         }
 
         /// <summary>
@@ -62,74 +43,66 @@ namespace Dominus_RPG_Core.ScreenManagement
             // Change map logic.
             this.CurrentMap = map;
             _camera.Bounds = new Rectangle(0, 0, this.CurrentMap.Size.X * 32, this.CurrentMap.Size.Y * 32);
-            this.GetEntity<Player>("MainPlayer").Bounds = _camera.Bounds;
 
-            this.ProcessMapSpawns();
+            var player = new Player(ContentManagerUtilities.LoadTexture2D(this.Content, DominusRPGGame.Properties.PlayerTexturePath));
+            player.Bounds = _camera.Bounds;
+            player.Speed = .5f;
+            this.CurrentMap.GetLayers()[3].GetGameObjects().Add("MainPlayer", player);
+            _camera.SetEntityTarget(player);
+        }
+
+        // Removes the specified game object from the screen.
+        public override void RemoveGameObject(string name)
+        {
+            base.RemoveGameObject(name);
+        }
+
+        // Removes the specified game object from the screen.
+        public override void RemoveGameObject(Dominus_Core.IGameObject value)
+        {
+            base.RemoveGameObject(value);
         }
 
         /// <summary>
-        /// Populates the screen with any entities or game objects specified by the map's spawn information.
+        /// Gets the game objects from this screen, completely independent of the map layers.
         /// </summary>
-        protected virtual void ProcessMapSpawns()
+        /// <returns></returns>
+        public override OrderedDictionary<string, IGameObject> GetGameObjects()
         {
-            foreach (var gameObjectEntry in this.CurrentMap.SpawnInformation.GetGameObjects())
-            {
-                this.AddGameObject(gameObjectEntry.Value, gameObjectEntry.Key);
-            }
+            return base.GetGameObjects();
         }
 
-        public void AddEntity(IEntity entity, string name)
+        /// <summary>
+        /// Gets a game object from this screen, completely independent of the map layers.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public override T GetGameObject<T>(string name)
         {
-            _entities.Add(name, entity);
+            return base.GetGameObject<T>(name);
         }
 
-        public void RemoveEntity(string name)
+        /// <summary>
+        /// Adds a game object to this screen, completely independent of the map layers.
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <param name="name"></param>
+        public override void AddGameObject(Dominus_Core.IGameObject gameObject, string name)
         {
-            _entities.Remove(name);
-        }
-
-        public void RemoveEntity(IEntity entity)
-        {
-            var name = _entities.FirstOrDefault(x => x.Value == entity).Key;
-
-            this.RemoveGameObject(name);
-        }
-
-        public IEntity[] GetEntities()
-        {
-            var values = new IEntity[_entities.Count];
-
-            _entities.Values.CopyTo(values, 0);
-
-            return values;
-        }
-
-        public T GetEntity<T>(string name) where T : IEntity
-        {
-            IEntity value;
-
-            if (_entities.TryGetValue(name, out value))
-            {
-                if (value.GetType() == typeof(T))
-                {
-                    return (T)value;
-                }
-            }
-
-            return default(T);
+            base.AddGameObject(gameObject, name);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            _mapSpriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, _camera.GetTransformation(_graphicsDevice));
+            _mapSpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, _camera.GetTransformation(_graphicsDevice));
 
             if (this.CurrentMap != null)
-                this.CurrentMap.Draw(_mapSpriteBatch);
+            {
+                this.CurrentMap.Draw(spriteBatch);
+            }
 
-            foreach (var entity in _entities.Values)
-                entity.Draw(_mapSpriteBatch);
-
-            foreach (var gameObject in this.GetGameObjects())
+            foreach (var gameObject in this.GetGameObjects().Values)
                 gameObject.Draw(_mapSpriteBatch);
 
             _mapSpriteBatch.End();
@@ -139,10 +112,12 @@ namespace Dominus_RPG_Core.ScreenManagement
 
         public override void Update(GameTime gameTime)
         {
-            foreach (var entity in _entities.Values)
-                entity.Update(gameTime);
+            if (this.CurrentMap != null)
+            {
+                this.CurrentMap.Update(gameTime);
+            }
 
-            foreach (var gameObject in this.GetGameObjects())
+            foreach (var gameObject in this.GetGameObjects().Values)
             {
                 gameObject.Update(gameTime);
             }

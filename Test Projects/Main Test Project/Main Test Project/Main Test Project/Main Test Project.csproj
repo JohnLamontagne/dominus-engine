@@ -101,10 +101,6 @@
       <Project>{5e02bc34-ea1e-4c8a-9c76-4ab1b7f4d397}</Project>
       <Name>Dominus Utilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Main Test ProjectContent\Main Test ProjectContent.contentproj">
-      <Name>Main_Test_ProjectContent</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

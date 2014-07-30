@@ -4,6 +4,11 @@ namespace Dominus_RPG_Core
 {
     public abstract class DominusRPGGame : DominusGame
     {
-        protected override abstract void InitalizeScreens();
+        public static RPGGameProperties Properties { get; set; }
+
+        public DominusRPGGame(RPGGameProperties properties)
+        {
+            DominusRPGGame.Properties = properties;
+        }
     }
 }

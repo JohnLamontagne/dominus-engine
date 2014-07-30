@@ -1,5 +1,6 @@
 ﻿using Dominus_Core;
 using Dominus_Core.Graphics.Effects.Particles;
+using Dominus_RPG_Core.World.Entities;
 using Dominus_Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -10,35 +11,45 @@ using TiledSharp;
 
 namespace Dominus_RPG_Core.World.WorldStructure
 {
-    public class SpawnInformation
+    public class MapObjectLoader
     {
-        private Dictionary<string, IGameObject> _gameObjects;
-
-        public SpawnInformation()
+        public MapObjectLoader()
         {
-            _gameObjects = new Dictionary<string, IGameObject>();
         }
 
-        public void LoadGameObjects(TmxMap tmxMap, ContentManager content)
+        public Layer[] LoadObjectLayers(TmxMap tmxMap, ContentManager content)
         {
-            foreach (var tmxObjectGroup in tmxMap.ObjectGroups)
+            var layers = new Layer[tmxMap.ObjectGroups.Count];
+
+            for (int i = 0; i < tmxMap.ObjectGroups.Count; i++)
             {
-                foreach (var tmxObject in tmxObjectGroup.Objects)
+                OrderedDictionary<string, IGameObject> _gameObjects = new OrderedDictionary<string, IGameObject>();
+
+                foreach (var tmxObject in tmxMap.ObjectGroups[i].Objects)
                 {
                     if (tmxObject.Type == "Particle Emitter")
                     {
                         IGameObject gameObject = this.LoadParticleEmitter(tmxObject, content);
                         _gameObjects.Add(tmxObject.Name, gameObject);
                     }
+                    else if (tmxObject.Type == "NPC Spawner")
+                    {
+                        IGameObject gameObject = this.LoadNpcSpawner(tmxObject, _gameObjects, content);
+                        _gameObjects.Add(tmxObject.Name, gameObject);
+                    }
                 }
+
+                layers[i] = new Layer(_gameObjects, tmxMap.ObjectGroups[i].ZOrder);
             }
+
+            return layers;
         }
 
         private ParticleEmitter LoadParticleEmitter(TmxObjectGroup.TmxObject tmxObject, ContentManager content)
         {
             ParticleEmitter particleEmitter = null;
 
-            Texture2D[] particleTextures = this.LoadParticleTextures(tmxObject.Properties["TexturesFile"], content);
+            Texture2D[] particleTextures = ContentManagerUtilities.LoadParticleTextures(tmxObject.Properties["TexturesFile"], content);
             int particleCount = int.Parse(tmxObject.Properties["ParticleCount"]);
             Vector2 position = new Vector2(tmxObject.X, tmxObject.Y);
 
@@ -72,26 +83,30 @@ namespace Dominus_RPG_Core.World.WorldStructure
             return particleEmitter;
         }
 
-        private Texture2D[] LoadParticleTextures(string particleTextureFile, ContentManager content)
+        private NpcSpawner LoadNpcSpawner(TmxObjectGroup.TmxObject tmxObject, OrderedDictionary<string, IGameObject> gameObjects, ContentManager content)
         {
+            OrderedDictionary<string, Npc> _npcs = new OrderedDictionary<string, Npc>();
+
             var xmlDoc = new XmlDocument();
-            xmlDoc.Load(particleTextureFile);
+            xmlDoc.Load(tmxObject.Properties["SpawnerFile"]);
 
-            XmlNodeList nodes = xmlDoc.SelectNodes("Textures/Texture");
+            XmlNodeList nodes = xmlDoc.SelectNodes("NPCS/NPC");
 
-            var textures = new Texture2D[nodes.Count];
+            var spawningEntities = new List<IEntity>();
 
             for (int i = 0; i < nodes.Count; i++)
             {
-                textures[i] = ContentManagerUtilities.LoadTexture2D(content, nodes[i].Attributes["filepath"].Value);
+                // Load the npcs for the spawner.
+                string uniqueID = nodes[i].Attributes["UniqueID"].Value;
+                string npcDataFilePath = nodes[i].Attributes["filepath"].Value;
+
+                spawningEntities.Add(Npc.Load(npcDataFilePath, uniqueID, content));
             }
 
-            return textures;
-        }
+            var spawnerPosition = new Vector2(tmxObject.X, tmxObject.Y);
+            var updateInterval = uint.Parse(tmxObject.Properties["UpdateInterval"]);
 
-        public Dictionary<string, IGameObject> GetGameObjects()
-        {
-            return _gameObjects;
+            return new NpcSpawner(spawnerPosition, updateInterval, gameObjects, spawningEntities);
         }
     }
 }

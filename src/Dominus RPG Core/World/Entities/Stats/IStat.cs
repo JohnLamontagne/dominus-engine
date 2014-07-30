@@ -2,6 +2,8 @@
 {
     public interface IStat<T>
     {
+        T MaxPoints { get; }
+
         T GetPoints();
 
         void SetPoints(T points);

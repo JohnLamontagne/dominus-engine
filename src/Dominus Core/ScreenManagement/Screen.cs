@@ -1,4 +1,5 @@
 ﻿using Dominus_Core.Graphics.GUI;
+using Dominus_Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,11 +23,11 @@ namespace Dominus_Core.ScreenManagement
 
         public ContentManager Content { get; private set; }
 
-        private readonly Dictionary<string, IGameObject> _gameObjects;
+        private readonly OrderedDictionary<string, IGameObject> _gameObjects;
 
         public Screen(ContentManager content)
         {
-            _gameObjects = new Dictionary<string, IGameObject>();
+            _gameObjects = new OrderedDictionary<string, IGameObject>();
             this.Content = content;
             this.GUIHandler = new GUIHandler();
         }
@@ -47,33 +48,29 @@ namespace Dominus_Core.ScreenManagement
             this.GUIHandler.Draw(spriteBatch);
         }
 
-        public void AddGameObject(IGameObject gameObject, string name)
+        public virtual void AddGameObject(IGameObject gameObject, string name)
         {
             _gameObjects.Add(name, gameObject);
         }
 
-        public void RemoveGameObject(string name)
+        public virtual void RemoveGameObject(string name)
         {
             _gameObjects.Remove(name);
         }
 
-        public void RemoveGameObject(IGameObject value)
+        public virtual void RemoveGameObject(IGameObject value)
         {
             var name = _gameObjects.FirstOrDefault(x => x.Value == value).Key;
 
             this.RemoveGameObject(name);
         }
 
-        public IGameObject[] GetGameObjects()
+        public virtual OrderedDictionary<string, IGameObject> GetGameObjects()
         {
-            var values = new IGameObject[_gameObjects.Count];
-
-            _gameObjects.Values.CopyTo(values, 0);
-
-            return values;
+            return _gameObjects;
         }
 
-        public T GetGameObject<T>(string name) where T : IGameObject
+        public virtual T GetGameObject<T>(string name) where T : IGameObject
         {
             IGameObject value;
 
@@ -87,6 +84,5 @@ namespace Dominus_Core.ScreenManagement
 
             return default(T);
         }
-
     }
 }

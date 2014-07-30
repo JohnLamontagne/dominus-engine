@@ -1,26 +1,22 @@
-﻿using Dominus_Core;
-using Dominus_Core.Graphics.Effects.Particles;
-using Dominus_RPG_Core.World.WorldStructure.TiledSharp;
-using Dominus_Utilities;
+﻿using Dominus_RPG_Core.World.WorldStructure.TiledSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Xml.Linq;
+using System.Linq;
 using TiledSharp;
 
 namespace Dominus_RPG_Core.World.WorldStructure
 {
     public class Map
     {
-        private SpawnInformation _spawnInformation;
+        private MapObjectLoader _spawnInformation;
         private Layer[] _layers;
         private Point _size;
 
         public Point Size { get { return _size; } }
 
-        public SpawnInformation SpawnInformation { get { return _spawnInformation; } }
+        public MapObjectLoader SpawnInformation { get { return _spawnInformation; } }
 
         public Map()
         {
@@ -36,6 +32,15 @@ namespace Dominus_RPG_Core.World.WorldStructure
 
         public void Update(GameTime gameTime)
         {
+            for (int i = 0; i < _layers.Length; i++)
+            {
+                _layers[i].Update(gameTime);
+            }
+        }
+
+        public Layer[] GetLayers()
+        {
+            return _layers;
         }
 
         public static Map Load(string filePath, ContentManager content)
@@ -44,7 +49,9 @@ namespace Dominus_RPG_Core.World.WorldStructure
 
             var tmxMap = new TmxMap(filePath);
 
-            var layers = new Layer[tmxMap.Layers.Count];
+            Console.WriteLine("Loading map file: {0}", filePath);
+
+            var layers = new Layer[tmxMap.Layers.Count + tmxMap.ObjectGroups.Count];
 
             var tilesets = new Tileset[tmxMap.Tilesets.Count];
 
@@ -64,26 +71,34 @@ namespace Dominus_RPG_Core.World.WorldStructure
 
                 for (int b = 0; b < tmxLayer.Tiles.Count; b++)
                 {
-                    tiles[b] = LoadTile(tmxMap, tmxLayer.Tiles[b], tilesets, content, graphicsDevice);
+                    tiles[b] = LoadTile(tmxLayer, tmxLayer.Tiles[b], tilesets, content, graphicsDevice);
                 }
 
-                layers[i] = new Layer(tiles);
+                layers[i] = new Layer(tiles, tmxMap.Layers[i].ZOrder);
             }
 
-            SpawnInformation spawnInformation = new SpawnInformation();
-            spawnInformation.LoadGameObjects(tmxMap, content);
+            MapObjectLoader gameObjectLoader = new MapObjectLoader();
+            Layer[] objectLayers = gameObjectLoader.LoadObjectLayers(tmxMap, content);
+
+            // Copy the objectLayers array to the layers array, starting at the first available slot, which is at the end of the tile layers.
+            Array.Copy(objectLayers, 0, layers, tmxMap.Layers.Count, objectLayers.Length);
+
+            // Sort the layers properly.
+            Array.Sort(layers, (a, b) => a.ZOrder.CompareTo(b.ZOrder));
 
             map = new Map()
             {
                 _layers = layers,
                 _size = new Point(tmxMap.Width, tmxMap.Height),
-                _spawnInformation = spawnInformation
+                _spawnInformation = gameObjectLoader
             };
+
+            Console.WriteLine("Finished loading map file: {0}", filePath);
 
             return map;
         }
 
-        private static Tile LoadTile(TmxMap tmxMap, TmxLayerTile tmxTile, Tileset[] tilesets, ContentManager content, GraphicsDevice graphicsDevice)
+        private static Tile LoadTile(TmxLayer tmxLayer, TmxLayerTile tmxTile, Tileset[] tilesets, ContentManager content, GraphicsDevice graphicsDevice)
         {
             Tile tile = null;
 
@@ -97,18 +112,14 @@ namespace Dominus_RPG_Core.World.WorldStructure
                         int srcY = (((tmxTile.Gid - tileset.FirstGid) / tileset.TilesPerRow) * 32);
                         int srcX = (((tmxTile.Gid - tileset.FirstGid) % tileset.TilesPerRow) * 32);
 
-                        tile = new Tile(tileset, new Rectangle(srcX, srcY, tileset.TileWidth, tileset.TileHeight), new Vector2(tmxTile.X * 32, tmxTile.Y * 32));
+                        tile = new Tile(tileset, new Rectangle(srcX, srcY, tileset.TileWidth, tileset.TileHeight), new Vector2(tmxTile.X * 32, tmxTile.Y * 32), tmxLayer.Opacity);
 
                         break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("ERROR");
                     }
                 }
             }
 
-            return tile ?? new Tile(null, new Rectangle(), Vector2.Zero);
+            return tile ?? new Tile(null, new Rectangle(), Vector2.Zero, tmxLayer.Opacity);
         }
     }
 }
