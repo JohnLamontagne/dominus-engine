@@ -28,7 +28,8 @@ Installation
 --------------
 
 ```sh
-Coming soon...
+git clone https://github.com/Open-Animus/dominus-engine
+git remote add upstream https://github.com/Open-Animus/dominus-engine.git
 ```
 
 
