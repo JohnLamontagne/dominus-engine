@@ -23,6 +23,9 @@ a breeze.
 * [XNA] - awesome game development enviornment provided by Microsoft.
 * [.NET - C#] - an awesome software framework that provides a foundation for everything else!
 
+Screenshots
+-----------
+<img src="http://i.imgur.com/aUgRfll.png" />
 
 Installation
 --------------
