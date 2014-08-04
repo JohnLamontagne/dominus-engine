@@ -11,7 +11,7 @@ A free to use, open source game engine written entirely in C#.
 Version
 ----
 
-0.1 Alpha - *No continued support*
+0.1 Alpha - *Engine design is currently at risk for drastic change.*
 
 Tech
 -----------
