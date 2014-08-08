@@ -35,6 +35,8 @@ git clone https://github.com/Open-Animus/dominus-engine
 git remote add upstream https://github.com/Open-Animus/dominus-engine.git
 ```
 
+If you are using Visual Studio 2013, install this:
+https://msxna.codeplex.com/releases/view/117230
 
 
 License
