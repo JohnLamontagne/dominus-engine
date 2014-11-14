@@ -1,3 +1,7 @@
+*This has been discontinued! Please see [photon-engine]!*
+
+
+
 Dominus Engine
 =========
 
@@ -50,4 +54,5 @@ License
 [Tiled]:www.mapeditor.org
 [XNA]:http://www.microsoft.com/en-us/download/details.aspx?id=23714
 [.NET - C#]:http://www.microsoft.com/net
+[photon-engine]:https://github.com/JohnLamontagne/photon-engine
 
