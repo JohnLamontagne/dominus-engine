@@ -1,4 +1,4 @@
-*This has been discontinued! Please see [photon-engine]!*
+*This has been discontinued! More information regarding successor coming soon...*
 
 
 
